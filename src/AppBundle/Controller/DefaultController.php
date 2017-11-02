@@ -6,26 +6,46 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class DefaultController extends Controller
-{
+class DefaultController extends Controller {
+
     /**
      * @Route("/", name="homepage")
      */
-    public function indexAction(Request $request)
-    {
+    public function indexAction(Request $request) {
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+                    'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
         ]);
     }
-    
-    
+
     /**
      * @Route("home2", name="homepage2")
      */
-    public function home2Action()
-    {
+    public function home2Action() {
         // replace this example code with whatever you need
         return $this->render('default/home2.html.twig');
     }
+
+    /**
+     * @Route("eliminar/{id}", name="eliminar")
+     */
+    public function eliminarAction($id) {
+
+
+        // replace this example code with whatever you need
+        return $this->render('default/eliminar.html.twig');
+    }
+
+    /**
+     * @Route("show/{product}", name="product")
+     */
+    public function showAction($product) {
+
+
+        // replace this example code with whatever you need
+        return $this->render('default/show.html.twig', [
+                    'product' => $product
+        ]);
+    }
+
 }
